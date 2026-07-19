@@ -1,0 +1,356 @@
+/* SmartAssetX Rustic Cream & Maroon Design System */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-color: #ffead3;            /* Soft Cream Background */
+  --sidebar-bg: #f28d8d;          /* Even Lighter Rose/Red Sidebar */
+  --panel-bg: #ffffff;
+  --panel-border: 1px solid rgba(158, 59, 59, 0.12);
+  
+  --primary-color: #ea7b7b;      /* Rose Pink Buttons */
+  --primary-hover: #f28d8d;      /* Even Lighter Red Hover */
+  --accent-color: #9e3b3b;       /* Maroon Headings & Icons */
+  
+  /* Status Colors */
+  --success-color: #a7d7a7;      /* Available */
+  --danger-color: #ea7b7b;       /* Assigned */
+  --warning-color: #ffd166;      /* Maintenance */
+
+  --primary-gradient: linear-gradient(135deg, #ea7b7b 0%, #f28d8d 100%);
+  --success-gradient: linear-gradient(135deg, #a7d7a7 0%, #8bc38b 100%);
+  --danger-gradient: linear-gradient(135deg, #ea7b7b 0%, #f28d8d 100%);
+  --warning-gradient: linear-gradient(135deg, #ffd166 0%, #ffbf33 100%);
+
+  --text-primary: #1a1a1a;       /* Dark charcoal (almost black) for high visibility */
+  --text-muted: #2d2d2d;         /* Much darker gray for high-contrast labels */
+  --text-light: #3d3d3d;         /* Dark gray instead of light gray for details */
+  
+  --sidebar-width: 260px;
+  --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --card-radius: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-weight: 600;              /* Bolder base font weight for all text */
+  font-size: 1.12rem;            /* Visibly larger general font size */
+}
+
+/* Bolder font adjustments for high readability */
+label, .form-label {
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+}
+
+.text-muted, .text-white-50, .text-light {
+  font-weight: 600 !important;   /* Increase boldness of muted labels */
+  color: var(--text-muted) !important;
+}
+
+p, span, td, div {
+  font-weight: 500;
+}
+
+/* Enforce Maroon color for Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent-color) !important;
+  font-weight: 700 !important;
+}
+
+/* Override Bootstrap text-white utility classes to match Corporate Theme */
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+.text-white-50 {
+  color: var(--text-light) !important;
+}
+
+.text-muted {
+  color: var(--text-light) !important;
+}
+
+/* Corporate Cards with 12px corners and soft shadows */
+.glass-panel {
+  background: var(--panel-bg);
+  border: var(--panel-border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 8px rgba(158, 59, 59, 0.03), 0 2px 4px rgba(158, 59, 59, 0.02);
+  transition: var(--transition-smooth);
+}
+
+.glass-panel-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(158, 59, 59, 0.08), 0 4px 6px rgba(158, 59, 59, 0.04);
+  border-color: rgba(158, 59, 59, 0.25);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fbf0e2;
+}
+::-webkit-scrollbar-thumb {
+  background: #ea7b7b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d25353;
+}
+
+/* Floating Sidebar Panel - Dark Red Theme */
+.floating-sidebar {
+  width: var(--sidebar-width);
+  height: calc(100vh - 40px);
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  background: var(--sidebar-bg) !important;
+  border: 1px solid rgba(158, 59, 59, 0.15) !important;
+  box-shadow: 0 8px 24px rgba(158, 59, 59, 0.08) !important;
+  transition: var(--transition-smooth);
+}
+
+/* Main Content Wrapper */
+.content-wrapper {
+  margin-left: calc(var(--sidebar-width) + 40px);
+  padding: 20px;
+  min-height: calc(100vh - 40px);
+  transition: var(--transition-smooth);
+}
+
+@media (max-width: 991.98px) {
+  .floating-sidebar {
+    left: -280px;
+  }
+  .floating-sidebar.active {
+    left: 20px;
+  }
+  .content-wrapper {
+    margin-left: 20px;
+  }
+}
+
+/* Rose Pink Buttons */
+.btn-premium {
+  background: var(--primary-color);
+  border: 1px solid var(--primary-hover);
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 4px rgba(234, 123, 123, 0.1);
+}
+
+.btn-premium:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(234, 123, 123, 0.25);
+  color: #ffffff !important;
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
+
+/* Maroon Delete Buttons */
+.btn-danger, .btn-outline-danger {
+  background: var(--accent-color) !important;
+  border: 1px solid var(--accent-color) !important;
+  color: #ffffff !important;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.btn-danger:hover, .btn-outline-danger:hover {
+  background: #852f2f !important;
+  border-color: #852f2f !important;
+  transform: translateY(-1px);
+}
+
+/* Soft Cream Cancel Buttons */
+.btn-outline-secondary, .btn-secondary {
+  background: var(--bg-color) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--primary-hover) !important;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline-secondary:hover, .btn-secondary:hover {
+  background: #f5debe !important;
+}
+
+/* Form Inputs */
+.glass-input {
+  background: #ffffff;
+  border: 1px solid rgba(158, 59, 59, 0.25);
+  color: var(--text-primary) !important;
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: var(--transition-smooth);
+}
+
+.glass-input:focus {
+  background: #ffffff;
+  border-color: var(--primary-hover);
+  box-shadow: 0 0 0 3px rgba(234, 123, 123, 0.2);
+  outline: none;
+}
+
+.glass-input::placeholder {
+  color: var(--text-light);
+}
+
+/* Tables */
+.glass-table {
+  color: var(--text-primary) !important;
+}
+
+.glass-table th {
+  background: #fbf0e2 !important;
+  color: var(--accent-color) !important;
+  border-bottom: 2px solid rgba(158, 59, 59, 0.15) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 14px 16px;
+}
+
+.glass-table td {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(158, 59, 59, 0.08) !important;
+  padding: 14px 16px;
+  vertical-align: middle;
+}
+
+.glass-table tr:hover td {
+  background: #fbf5ed !important;
+}
+
+/* Status Badges Mapping */
+.badge.bg-success, .bg-success-subtle {
+  background-color: var(--success-color) !important;
+  color: #1e3d23 !important;
+}
+
+.badge.bg-danger, .bg-danger-subtle {
+  background-color: var(--danger-color) !important;
+  color: #ffffff !important;
+}
+
+.badge.bg-warning, .bg-warning-subtle {
+  background-color: var(--warning-color) !important;
+  color: #4a3400 !important;
+}
+
+/* Sidebar Links inside Dark Red Sidebar */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #ffffff;
+  opacity: 1;                     /* Fully opaque white text */
+  text-decoration: none;
+  border-radius: 8px;
+  transition: var(--transition-smooth);
+  margin-bottom: 6px;
+  font-weight: 700;               /* Solid Bold weight */
+  font-size: 1.12rem;             /* Even larger size for sidebar text */
+}
+
+/* Force Sidebar Logout Button to Solid Black */
+.sidebar-footer .text-danger,
+.sidebar-footer svg.text-danger,
+.sidebar-footer button.sidebar-link {
+  color: #000000 !important;
+}
+
+.sidebar-footer button.sidebar-link:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  opacity: 1;
+}
+
+.sidebar-link.active {
+  background: #ffffff !important;                /* Active menu uses solid white card look */
+  color: var(--sidebar-bg) !important;           /* Dark Red letters */
+  border-left: 4px solid var(--primary-color) !important; /* Left active rose indicator */
+  box-shadow: 0 4px 6px rgba(158, 59, 59, 0.04);
+  opacity: 1;
+}
+
+/* Toast Popups */
+.custom-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1050;
+  max-width: 350px;
+  background: #ffffff;
+  border: 1px solid rgba(158, 59, 59, 0.12);
+  box-shadow: 0 10px 25px rgba(158, 59, 59, 0.08);
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideInUp 0.2s ease-out;
+  transition: var(--transition-smooth);
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Charts Wrapper */
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 250px;
+  width: 100%;
+}
+
+/* Text Gradient tag */
+.text-gradient {
+  background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Spinner Overlay */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 234, 211, 0.85);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
